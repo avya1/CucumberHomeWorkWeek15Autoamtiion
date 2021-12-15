@@ -1,0 +1,2093 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='UTF-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>AutoMation - Cucumber Framework</title>
+
+	<style type='text/css'>
+			
+            
+
+      
+        
+	</style>
+</head>
+
+	<body class='extent dark default hide-overflow bdd-report'>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+				<li class='waves-effect'><a href='#!' view='author-view' onclick="configureView(3)"><i class='material-icons'>person</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>Cucumber Report</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Dec 15, 2021 06:45:15 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.2</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+						<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@Regression</a></li>
+					<li><a href='#'>@Smoke</a></li>
+					<li><a href='#'>@Sanity</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Features</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='33.333%'><span class='strong'>1</span> feature(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='66.667%'>2</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Scenarios</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='23.077%'><span class='strong'>3</span> scenario(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='76.923%'>10</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='80.808%'><span class='strong'>80</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='10.101%'>10</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='9.091%'>9</span> others
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Features</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>Create an Account</span>
+						<span class='test-time'>Dec 15, 2021 06:45:15 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='2' status='pass'>
+	<div class='category-list'>
+		<span class='category label white-text'>@Regression</span>
+		<span class='category label white-text'>@Smoke</span>
+	</div>
+	<span class='duration right label'>0h 0m 31s+663ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">User Should Create Account Successfully</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='3' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I am on HomePage</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='4' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I click on Sign In Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='5' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter email</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='6' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I click on Create an Account Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='7' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter FirstName "Robin"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='8' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter LastName "Singh"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='9' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter Password "Robin1234"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='10' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter Address line "1 Nice Building"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='11' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter City "Maryland"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='12' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I select state  "Ohio"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='13' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter zipcode "12345"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='14' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter Country "United States"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='15' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter Mobile number "01234567893"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='16' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter Address Alias "main home"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='17' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I click on Register button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='18' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify message "My account"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='19'>
+					<div class='test-heading'>
+						<span class='test-name'>Sign In on Login Page</span>
+						<span class='test-time'>Dec 15, 2021 06:45:48 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='20' status='pass'>
+	<div class='category-list'>
+		<span class='category label white-text'>@Regression</span>
+		<span class='category label white-text'>@Smoke</span>
+	</div>
+	<span class='duration right label'>0h 0m 11s+604ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">User Should navigate to login page successfully</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='21' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I am on HomePage</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='22' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I Click on Sign in link</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='23' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I verify that "AUTHENTICATION" message is displayed</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='24' status='fail'>
+	<span class='duration right label'>0h 3m 0s+769ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">User should get Error Message with Invalid Credentials</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='25' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">User should get Error Message with Invalid Credentials</span>
+			
+				<ul class='steps'>
+					<li test-id='26' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I am on HomePage</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='27' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I Click on Sign in link</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='28' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter email ""</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='29' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter password "123456"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='30' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on Sign In Button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='31' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then I should see error message "An email address required."</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\thaku\OneDrive\Desktop\Prime testing\githubcloneone\CucumberAutomation-week15/src/main/java/com/automation/screenshots/User_should_get_Error_Message_with_Invalid_Credentials20211215064648.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//div[@class='alert alert-danger'])//ol//li"}
+  (Session info: chrome=96.0.4664.110)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'ANCHALT', ip: '192.168.1.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [581d3752175d243fa6502cc48b7ea7fd, findElement {using=xpath, value=(//div[@class='alert alert-danger'])//ol//li}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\thaku\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59557}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:59557/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 581d3752175d243fa6502cc48b7ea7fd
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at com.sun.proxy.$Proxy23.getText(Unknown Source)
+	at com.automation.utility.Utility.getTextFromElement(Utility.java:38)
+	at com.automation.pages.SignInPage.getVerifyAuthenticationFailedMessage(SignInPage.java:84)
+	at com.automation.cucumber.steps.LoginTestPage.iShouldSeeErrorMessage(LoginTestPage.java:47)
+	at ✽.Then I should see error message "An email address required."(signIn.feature:15)
+</pre></div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='32' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">User should get Error Message with Invalid Credentials</span>
+			
+				<ul class='steps'>
+					<li test-id='33' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I am on HomePage</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='34' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I Click on Sign in link</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='35' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter email "abcd@gmail.com"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='36' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter password ""</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='37' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on Sign In Button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='38' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then I should see error message "Password is required."</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\thaku\OneDrive\Desktop\Prime testing\githubcloneone\CucumberAutomation-week15/src/main/java/com/automation/screenshots/User_should_get_Error_Message_with_Invalid_Credentials20211215064735.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//div[@class='alert alert-danger'])//ol//li"}
+  (Session info: chrome=96.0.4664.110)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'ANCHALT', ip: '192.168.1.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9d2bf53cad3763327ddd9fcf850d6bb4, findElement {using=xpath, value=(//div[@class='alert alert-danger'])//ol//li}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\thaku\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59621}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:59621/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 9d2bf53cad3763327ddd9fcf850d6bb4
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at com.sun.proxy.$Proxy23.getText(Unknown Source)
+	at com.automation.utility.Utility.getTextFromElement(Utility.java:38)
+	at com.automation.pages.SignInPage.getVerifyAuthenticationFailedMessage(SignInPage.java:84)
+	at com.automation.cucumber.steps.LoginTestPage.iShouldSeeErrorMessage(LoginTestPage.java:47)
+	at ✽.Then I should see error message "Password is required."(signIn.feature:15)
+</pre></div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='39' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">User should get Error Message with Invalid Credentials</span>
+			
+				<ul class='steps'>
+					<li test-id='40' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I am on HomePage</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='41' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I Click on Sign in link</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='42' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter email "adfdfgfg"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='43' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter password "123456"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='44' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on Sign In Button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='45' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then I should see error message "Invalid email address."</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\thaku\OneDrive\Desktop\Prime testing\githubcloneone\CucumberAutomation-week15/src/main/java/com/automation/screenshots/User_should_get_Error_Message_with_Invalid_Credentials20211215064810.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//div[@class='alert alert-danger'])//ol//li"}
+  (Session info: chrome=96.0.4664.110)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'ANCHALT', ip: '192.168.1.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [37a4b4a234fc1264f50c82b85782ea49, findElement {using=xpath, value=(//div[@class='alert alert-danger'])//ol//li}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\thaku\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59673}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:59673/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 37a4b4a234fc1264f50c82b85782ea49
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at com.sun.proxy.$Proxy23.getText(Unknown Source)
+	at com.automation.utility.Utility.getTextFromElement(Utility.java:38)
+	at com.automation.pages.SignInPage.getVerifyAuthenticationFailedMessage(SignInPage.java:84)
+	at com.automation.cucumber.steps.LoginTestPage.iShouldSeeErrorMessage(LoginTestPage.java:47)
+	at ✽.Then I should see error message "Invalid email address."(signIn.feature:15)
+</pre></div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='46' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">User should get Error Message with Invalid Credentials</span>
+			
+				<ul class='steps'>
+					<li test-id='47' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I am on HomePage</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='48' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I Click on Sign in link</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='49' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter email "abcd@gmail.com"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='50' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I enter password "123456"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='51' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on Sign In Button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='52' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then I should see error message "Authentication failed."</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\thaku\OneDrive\Desktop\Prime testing\githubcloneone\CucumberAutomation-week15/src/main/java/com/automation/screenshots/User_should_get_Error_Message_with_Invalid_Credentials20211215064901.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//div[@class='alert alert-danger'])//ol//li"}
+  (Session info: chrome=96.0.4664.110)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'ANCHALT', ip: '192.168.1.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [167bffb43faa5d03949e54e0763cdf34, findElement {using=xpath, value=(//div[@class='alert alert-danger'])//ol//li}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\thaku\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59723}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:59723/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 167bffb43faa5d03949e54e0763cdf34
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at com.sun.proxy.$Proxy23.getText(Unknown Source)
+	at com.automation.utility.Utility.getTextFromElement(Utility.java:38)
+	at com.automation.pages.SignInPage.getVerifyAuthenticationFailedMessage(SignInPage.java:84)
+	at com.automation.cucumber.steps.LoginTestPage.iShouldSeeErrorMessage(LoginTestPage.java:47)
+	at ✽.Then I should see error message "Authentication failed."(signIn.feature:15)
+</pre></div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='53' status='fail'>
+	<div class='category-list'>
+		<span class='category label white-text'>@Regression</span>
+		<span class='category label white-text'>@Sanity</span>
+	</div>
+	<span class='duration right label'>0h 0m 48s+809ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">User should login with Valid Credentials</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='54' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I am on HomePage</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='55' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I Click on Sign in link</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='56' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter email "Georgesmith@gmail.com"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='57' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter password "acd1234"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='58' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I click on Sign In Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='59' class='node then fail' status='fail'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Sign out link is displayed</span>
+			<ul class='screenshots right'>
+				<li><a data-featherlight="image" href="C:\Users\thaku\OneDrive\Desktop\Prime testing\githubcloneone\CucumberAutomation-week15/src/main/java/com/automation/screenshots/User_should_login_with_Valid_Credentials20211215064950.png"><i class='material-icons'>panorama</i></a></li>
+			</ul>
+				<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//a[@title='Log me out']"}
+  (Session info: chrome=96.0.4664.110)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'ANCHALT', ip: '192.168.1.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [b0db08653a30ea8fa3933ebf2ae18409, findElement {using=xpath, value=//a[@title='Log me out']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\thaku\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59778}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:59778/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b0db08653a30ea8fa3933ebf2ae18409
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at com.sun.proxy.$Proxy23.getText(Unknown Source)
+	at com.automation.utility.Utility.getTextFromElement(Utility.java:38)
+	at com.automation.pages.SignInPage.verifyLogOutLink(SignInPage.java:90)
+	at com.automation.cucumber.steps.LoginTestPage.signOutLinkIsDisplayed(LoginTestPage.java:54)
+	at ✽.Then Sign out link is displayed(signIn.feature:29)
+</pre></div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='60' status='fail'>
+	<div class='category-list'>
+		<span class='category label white-text'>@Regression</span>
+		<span class='category label white-text'>@Sanity</span>
+	</div>
+	<span class='duration right label'>0h 0m 21s+927ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">User should LogOut SuccessFully</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='61' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I am on HomePage</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='62' class='node when fail' status='fail'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I Click on Sign in link</span>
+				<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//a[normalize-space()='Sign in']"}
+  (Session info: chrome=96.0.4664.110)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'ANCHALT', ip: '192.168.1.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e977df250d3f7786b0ecd1beaaab12dc, findElement {using=xpath, value=//a[normalize-space()='Sign in']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\thaku\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59834}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:59834/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: e977df250d3f7786b0ecd1beaaab12dc
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at com.sun.proxy.$Proxy23.click(Unknown Source)
+	at com.automation.utility.Utility.clickOnElement(Utility.java:27)
+	at com.automation.pages.HomePage.setClickOnSignInLink(HomePage.java:43)
+	at com.automation.cucumber.steps.LoginTestPage.iClickOnSignInLink(LoginTestPage.java:20)
+	at ✽.When I Click on Sign in link(signIn.feature:33)
+</pre></div>
+			
+		</li>
+		<li test-id='63' class='node and skip' status='skip'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter email "Georgesmith@gmail.com"</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='64' class='node and skip' status='skip'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I enter password "acd1234"</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='65' class='node and skip' status='skip'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I click on Sign In Button</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='66' class='node and skip' status='skip'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Click on Sign out Link</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='67' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Sign In Link displayed</span>
+			<ul class='screenshots right'>
+				<li><a data-featherlight="image" href="C:\Users\thaku\OneDrive\Desktop\Prime testing\githubcloneone\CucumberAutomation-week15/src/main/java/com/automation/screenshots/User_should_LogOut_SuccessFully20211215065013.png"><i class='material-icons'>panorama</i></a></li>
+			</ul>
+				<div class='pre'>skipped</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='68'>
+					<div class='test-heading'>
+						<span class='test-name'>Women Category Page Test</span>
+						<span class='test-time'>Dec 15, 2021 06:50:14 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='69' status='pass'>
+	<div class='category-list'>
+		<span class='category label white-text'>@Regression</span>
+		<span class='category label white-text'>@Sanity</span>
+	</div>
+	<span class='duration right label'>0h 0m 21s+928ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Verify User Should Navigate To Women Category Page Successfully</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='70' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I am on HomePage</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='71' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I click on Women Tab</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='72' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I can verify "WOMEN" text on Screen.</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='73' status='fail'>
+	<span class='duration right label'>0h 1m 58s+799ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Verify User Should Add Product To The Cart Successfully</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='74' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify User Should Add Product To The Cart Successfully</span>
+			
+				<ul class='steps'>
+					<li test-id='75' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I am on HomePage</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='76' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on Women Tab</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='77' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I Click on the product "Blouse"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='78' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I change quantity "2"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='79' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Select size "M"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='80' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Select colour "White"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='81' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Click on Add To Cart Button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='82' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Popup will display</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='83' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then Verify the message "Product successfully added to your shopping cart"</span>
+							<div class='pre'><textarea>org.junit.ComparisonFailure: Message not Display expected:<[Product successfully added to your shopping cart]> but was:<[]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at com.automation.cucumber.steps.womenCatagoryPage.verifyTheMessage(womenCatagoryPage.java:50)
+	at ✽.Then Verify the message "Product successfully added to your shopping cart"(womenCategory.feature:20)
+</textarea></div>
+					</li>
+					<li test-id='84' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And Click on X button and close the popup</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\thaku\OneDrive\Desktop\Prime testing\githubcloneone\CucumberAutomation-week15/src/main/java/com/automation/screenshots/Verify_User_Should_Add_Product_To_The_Cart_Successfully20211215065105.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>skipped</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='85' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify User Should Add Product To The Cart Successfully</span>
+			
+				<ul class='steps'>
+					<li test-id='86' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I am on HomePage</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='87' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on Women Tab</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='88' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I Click on the product "Printed Dress"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='89' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I change quantity "3"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='90' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Select size "L"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='91' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Select colour "Orange"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='92' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Click on Add To Cart Button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='93' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Popup will display</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='94' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then Verify the message "Product successfully added to your shopping cart"</span>
+							<div class='pre'><textarea>org.junit.ComparisonFailure: Message not Display expected:<[Product successfully added to your shopping cart]> but was:<[]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at com.automation.cucumber.steps.womenCatagoryPage.verifyTheMessage(womenCatagoryPage.java:50)
+	at ✽.Then Verify the message "Product successfully added to your shopping cart"(womenCategory.feature:20)
+</textarea></div>
+					</li>
+					<li test-id='95' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And Click on X button and close the popup</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\thaku\OneDrive\Desktop\Prime testing\githubcloneone\CucumberAutomation-week15/src/main/java/com/automation/screenshots/Verify_User_Should_Add_Product_To_The_Cart_Successfully20211215065132.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>skipped</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='96' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify User Should Add Product To The Cart Successfully</span>
+			
+				<ul class='steps'>
+					<li test-id='97' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I am on HomePage</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='98' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on Women Tab</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='99' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I Click on the product "Printed Chiffon Dress"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='100' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I change quantity "4"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='101' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Select size "S"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='102' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Select colour "Green"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='103' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Click on Add To Cart Button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='104' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Popup will display</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='105' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then Verify the message "Product successfully added to your shopping cart"</span>
+							<div class='pre'><textarea>org.junit.ComparisonFailure: Message not Display expected:<[Product successfully added to your shopping cart]> but was:<[]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at com.automation.cucumber.steps.womenCatagoryPage.verifyTheMessage(womenCatagoryPage.java:50)
+	at ✽.Then Verify the message "Product successfully added to your shopping cart"(womenCategory.feature:20)
+</textarea></div>
+					</li>
+					<li test-id='106' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And Click on X button and close the popup</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\thaku\OneDrive\Desktop\Prime testing\githubcloneone\CucumberAutomation-week15/src/main/java/com/automation/screenshots/Verify_User_Should_Add_Product_To_The_Cart_Successfully20211215065203.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>skipped</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='107' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Smoke</span>
+				<span class='category label white-text'>@Regression</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify User Should Add Product To The Cart Successfully</span>
+			
+				<ul class='steps'>
+					<li test-id='108' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I am on HomePage</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='109' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I click on Women Tab</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='110' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I Click on the product "Printed Summer Dress"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='111' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I change quantity "2"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='112' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Select size "M"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='113' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Select colour "Blue"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='114' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Click on Add To Cart Button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='115' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Popup will display</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='116' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then Verify the message "Product successfully added to your shopping cart"</span>
+							<div class='pre'><textarea>org.junit.ComparisonFailure: Message not Display expected:<[Product successfully added to your shopping cart]> but was:<[]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at com.automation.cucumber.steps.womenCatagoryPage.verifyTheMessage(womenCatagoryPage.java:50)
+	at ✽.Then Verify the message "Product successfully added to your shopping cart"(womenCategory.feature:20)
+</textarea></div>
+					</li>
+					<li test-id='117' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And Click on X button and close the popup</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\thaku\OneDrive\Desktop\Prime testing\githubcloneone\CucumberAutomation-week15/src/main/java/com/automation/screenshots/Verify_User_Should_Add_Product_To_The_Cart_Successfully20211215065235.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>skipped</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Regression</span>
+						<span class='category-status right'>
+							<span class='label pass'>3</span>
+							<span class='label fail'>10</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 3</span>
+							<span class='label red lighten-1 white-text'>Failed: 10</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Dec 15, 2021 06:45:15 PM</td>
+										<td class='linked' test-id='2'>Create an Account.User Should Create Account Successfully</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:45:48 PM</td>
+										<td class='linked' test-id='20'>Sign In on Login Page.User Should navigate to login page successfully</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:46:00 PM</td>
+										<td class='linked' test-id='25'>Sign In on Login Page.User should get Error Message with Invalid Credentials.User should get Error Message with Invalid Credentials</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:46:49 PM</td>
+										<td class='linked' test-id='32'>Sign In on Login Page.User should get Error Message with Invalid Credentials.User should get Error Message with Invalid Credentials</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:47:36 PM</td>
+										<td class='linked' test-id='39'>Sign In on Login Page.User should get Error Message with Invalid Credentials.User should get Error Message with Invalid Credentials</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:48:11 PM</td>
+										<td class='linked' test-id='46'>Sign In on Login Page.User should get Error Message with Invalid Credentials.User should get Error Message with Invalid Credentials</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:49:02 PM</td>
+										<td class='linked' test-id='53'>Sign In on Login Page.User should login with Valid Credentials</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:49:51 PM</td>
+										<td class='linked' test-id='60'>Sign In on Login Page.User should LogOut SuccessFully</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:50:14 PM</td>
+										<td class='linked' test-id='69'>Women Category Page Test.Verify User Should Navigate To Women Category Page Successfully</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:50:36 PM</td>
+										<td class='linked' test-id='74'>Women Category Page Test.Verify User Should Add Product To The Cart Successfully.Verify User Should Add Product To The Cart Successfully</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:51:06 PM</td>
+										<td class='linked' test-id='85'>Women Category Page Test.Verify User Should Add Product To The Cart Successfully.Verify User Should Add Product To The Cart Successfully</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:51:33 PM</td>
+										<td class='linked' test-id='96'>Women Category Page Test.Verify User Should Add Product To The Cart Successfully.Verify User Should Add Product To The Cart Successfully</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:52:04 PM</td>
+										<td class='linked' test-id='107'>Women Category Page Test.Verify User Should Add Product To The Cart Successfully.Verify User Should Add Product To The Cart Successfully</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Smoke</span>
+						<span class='category-status right'>
+							<span class='label pass'>2</span>
+							<span class='label fail'>8</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 2</span>
+							<span class='label red lighten-1 white-text'>Failed: 8</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Dec 15, 2021 06:45:15 PM</td>
+										<td class='linked' test-id='2'>Create an Account.User Should Create Account Successfully</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:45:48 PM</td>
+										<td class='linked' test-id='20'>Sign In on Login Page.User Should navigate to login page successfully</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:46:00 PM</td>
+										<td class='linked' test-id='25'>Sign In on Login Page.User should get Error Message with Invalid Credentials.User should get Error Message with Invalid Credentials</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:46:49 PM</td>
+										<td class='linked' test-id='32'>Sign In on Login Page.User should get Error Message with Invalid Credentials.User should get Error Message with Invalid Credentials</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:47:36 PM</td>
+										<td class='linked' test-id='39'>Sign In on Login Page.User should get Error Message with Invalid Credentials.User should get Error Message with Invalid Credentials</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:48:11 PM</td>
+										<td class='linked' test-id='46'>Sign In on Login Page.User should get Error Message with Invalid Credentials.User should get Error Message with Invalid Credentials</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:50:36 PM</td>
+										<td class='linked' test-id='74'>Women Category Page Test.Verify User Should Add Product To The Cart Successfully.Verify User Should Add Product To The Cart Successfully</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:51:06 PM</td>
+										<td class='linked' test-id='85'>Women Category Page Test.Verify User Should Add Product To The Cart Successfully.Verify User Should Add Product To The Cart Successfully</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:51:33 PM</td>
+										<td class='linked' test-id='96'>Women Category Page Test.Verify User Should Add Product To The Cart Successfully.Verify User Should Add Product To The Cart Successfully</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:52:04 PM</td>
+										<td class='linked' test-id='107'>Women Category Page Test.Verify User Should Add Product To The Cart Successfully.Verify User Should Add Product To The Cart Successfully</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Sanity</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+							<span class='label fail'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							<span class='label red lighten-1 white-text'>Failed: 2</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Dec 15, 2021 06:49:02 PM</td>
+										<td class='linked' test-id='53'>Sign In on Login Page.User should login with Valid Credentials</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:49:51 PM</td>
+										<td class='linked' test-id='60'>Sign In on Login Page.User should LogOut SuccessFully</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Dec 15, 2021 06:50:14 PM</td>
+										<td class='linked' test-id='69'>Women Category Page Test.Verify User Should Navigate To Women Category Page Successfully</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<div id='author-view' class='view hide'>
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Authors' title='Search Authors'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Authors...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Authors</h5>
+                <ul id='author-collection' class='author-collection'>
+
+                        <li class='author displayed active'>
+                            <div class='author-heading'>
+                                <span class='author-name'>Jignesh</span>
+                                <span class='author-status right'>
+                                        <span class='label pass'>3</span>
+                                        <span class='label fail'>10</span>
+						        </span>
+                            </div>
+                            <div class='author-content hide'>
+                                <div class='author-status-counts'>
+                                    <span class='label green accent-4 white-text'>Passed: 3</span>
+                                    <span class='label red lighten-1 white-text'>Failed: 10</span>
+                                    
+                                </div>
+
+                                <div class='author-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Dec 15, 2021 06:45:15 PM</td>
+                                                <td class='linked' test-id='2'>Create an Account.User Should Create Account Successfully</td>
+                                                <td><span class='test-status pass'>pass</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dec 15, 2021 06:45:48 PM</td>
+                                                <td class='linked' test-id='20'>Sign In on Login Page.User Should navigate to login page successfully</td>
+                                                <td><span class='test-status pass'>pass</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dec 15, 2021 06:46:00 PM</td>
+                                                <td class='linked' test-id='25'>Sign In on Login Page.User should get Error Message with Invalid Credentials.User should get Error Message with Invalid Credentials</td>
+                                                <td><span class='test-status fail'>fail</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dec 15, 2021 06:46:49 PM</td>
+                                                <td class='linked' test-id='32'>Sign In on Login Page.User should get Error Message with Invalid Credentials.User should get Error Message with Invalid Credentials</td>
+                                                <td><span class='test-status fail'>fail</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dec 15, 2021 06:47:36 PM</td>
+                                                <td class='linked' test-id='39'>Sign In on Login Page.User should get Error Message with Invalid Credentials.User should get Error Message with Invalid Credentials</td>
+                                                <td><span class='test-status fail'>fail</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dec 15, 2021 06:48:11 PM</td>
+                                                <td class='linked' test-id='46'>Sign In on Login Page.User should get Error Message with Invalid Credentials.User should get Error Message with Invalid Credentials</td>
+                                                <td><span class='test-status fail'>fail</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dec 15, 2021 06:49:02 PM</td>
+                                                <td class='linked' test-id='53'>Sign In on Login Page.User should login with Valid Credentials</td>
+                                                <td><span class='test-status fail'>fail</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dec 15, 2021 06:49:51 PM</td>
+                                                <td class='linked' test-id='60'>Sign In on Login Page.User should LogOut SuccessFully</td>
+                                                <td><span class='test-status fail'>fail</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dec 15, 2021 06:50:14 PM</td>
+                                                <td class='linked' test-id='69'>Women Category Page Test.Verify User Should Navigate To Women Category Page Successfully</td>
+                                                <td><span class='test-status pass'>pass</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dec 15, 2021 06:50:36 PM</td>
+                                                <td class='linked' test-id='74'>Women Category Page Test.Verify User Should Add Product To The Cart Successfully.Verify User Should Add Product To The Cart Successfully</td>
+                                                <td><span class='test-status fail'>fail</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dec 15, 2021 06:51:06 PM</td>
+                                                <td class='linked' test-id='85'>Women Category Page Test.Verify User Should Add Product To The Cart Successfully.Verify User Should Add Product To The Cart Successfully</td>
+                                                <td><span class='test-status fail'>fail</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dec 15, 2021 06:51:33 PM</td>
+                                                <td class='linked' test-id='96'>Women Category Page Test.Verify User Should Add Product To The Cart Successfully.Verify User Should Add Product To The Cart Successfully</td>
+                                                <td><span class='test-status fail'>fail</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dec 15, 2021 06:52:04 PM</td>
+                                                <td class='linked' test-id='107'>Women Category Page Test.Verify User Should Add Product To The Cart Successfully.Verify User Should Add Product To The Cart Successfully</td>
+                                                <td><span class='test-status fail'>fail</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='author-name'></h5>
+        </div>
+    </div>
+</div>
+<div id='exception-view' class='view hide'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Exceptions</h3>
+                <ul id='exception-collection' class='exception-collection'>
+
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.openqa.selenium.NoSuchElementException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>6</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Dec 15, 2021 06:46:26 PM</td>
+                                                        <td class='linked' test-id='31'>Sign In on Login Page.User should get Error Message with Invalid Credentials.User should get Error Message with Invalid Credentials.Then I should see error message "An email address required."</td>
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//div[@class='alert alert-danger'])//ol//li"}
+  (Session info: chrome=96.0.4664.110)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'ANCHALT', ip: '192.168.1.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [581d3752175d243fa6502cc48b7ea7fd, findElement {using=xpath, value=(//div[@class='alert alert-danger'])//ol//li}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\thaku\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59557}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:59557/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 581d3752175d243fa6502cc48b7ea7fd
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at com.sun.proxy.$Proxy23.getText(Unknown Source)
+	at com.automation.utility.Utility.getTextFromElement(Utility.java:38)
+	at com.automation.pages.SignInPage.getVerifyAuthenticationFailedMessage(SignInPage.java:84)
+	at com.automation.cucumber.steps.LoginTestPage.iShouldSeeErrorMessage(LoginTestPage.java:47)
+	at ✽.Then I should see error message "An email address required."(signIn.feature:15)
+</pre></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Dec 15, 2021 06:47:13 PM</td>
+                                                        <td class='linked' test-id='38'>Sign In on Login Page.User should get Error Message with Invalid Credentials.User should get Error Message with Invalid Credentials.Then I should see error message "Password is required."</td>
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//div[@class='alert alert-danger'])//ol//li"}
+  (Session info: chrome=96.0.4664.110)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'ANCHALT', ip: '192.168.1.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9d2bf53cad3763327ddd9fcf850d6bb4, findElement {using=xpath, value=(//div[@class='alert alert-danger'])//ol//li}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\thaku\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59621}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:59621/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 9d2bf53cad3763327ddd9fcf850d6bb4
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at com.sun.proxy.$Proxy23.getText(Unknown Source)
+	at com.automation.utility.Utility.getTextFromElement(Utility.java:38)
+	at com.automation.pages.SignInPage.getVerifyAuthenticationFailedMessage(SignInPage.java:84)
+	at com.automation.cucumber.steps.LoginTestPage.iShouldSeeErrorMessage(LoginTestPage.java:47)
+	at ✽.Then I should see error message "Password is required."(signIn.feature:15)
+</pre></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Dec 15, 2021 06:47:48 PM</td>
+                                                        <td class='linked' test-id='45'>Sign In on Login Page.User should get Error Message with Invalid Credentials.User should get Error Message with Invalid Credentials.Then I should see error message "Invalid email address."</td>
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//div[@class='alert alert-danger'])//ol//li"}
+  (Session info: chrome=96.0.4664.110)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'ANCHALT', ip: '192.168.1.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [37a4b4a234fc1264f50c82b85782ea49, findElement {using=xpath, value=(//div[@class='alert alert-danger'])//ol//li}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\thaku\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59673}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:59673/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 37a4b4a234fc1264f50c82b85782ea49
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at com.sun.proxy.$Proxy23.getText(Unknown Source)
+	at com.automation.utility.Utility.getTextFromElement(Utility.java:38)
+	at com.automation.pages.SignInPage.getVerifyAuthenticationFailedMessage(SignInPage.java:84)
+	at com.automation.cucumber.steps.LoginTestPage.iShouldSeeErrorMessage(LoginTestPage.java:47)
+	at ✽.Then I should see error message "Invalid email address."(signIn.feature:15)
+</pre></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Dec 15, 2021 06:48:39 PM</td>
+                                                        <td class='linked' test-id='52'>Sign In on Login Page.User should get Error Message with Invalid Credentials.User should get Error Message with Invalid Credentials.Then I should see error message "Authentication failed."</td>
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//div[@class='alert alert-danger'])//ol//li"}
+  (Session info: chrome=96.0.4664.110)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'ANCHALT', ip: '192.168.1.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [167bffb43faa5d03949e54e0763cdf34, findElement {using=xpath, value=(//div[@class='alert alert-danger'])//ol//li}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\thaku\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59723}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:59723/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 167bffb43faa5d03949e54e0763cdf34
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at com.sun.proxy.$Proxy23.getText(Unknown Source)
+	at com.automation.utility.Utility.getTextFromElement(Utility.java:38)
+	at com.automation.pages.SignInPage.getVerifyAuthenticationFailedMessage(SignInPage.java:84)
+	at com.automation.cucumber.steps.LoginTestPage.iShouldSeeErrorMessage(LoginTestPage.java:47)
+	at ✽.Then I should see error message "Authentication failed."(signIn.feature:15)
+</pre></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Dec 15, 2021 06:49:30 PM</td>
+                                                        <td class='linked' test-id='59'>Sign In on Login Page.User should login with Valid Credentials.Then Sign out link is displayed</td>
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//a[@title='Log me out']"}
+  (Session info: chrome=96.0.4664.110)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'ANCHALT', ip: '192.168.1.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [b0db08653a30ea8fa3933ebf2ae18409, findElement {using=xpath, value=//a[@title='Log me out']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\thaku\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59778}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:59778/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b0db08653a30ea8fa3933ebf2ae18409
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at com.sun.proxy.$Proxy23.getText(Unknown Source)
+	at com.automation.utility.Utility.getTextFromElement(Utility.java:38)
+	at com.automation.pages.SignInPage.verifyLogOutLink(SignInPage.java:90)
+	at com.automation.cucumber.steps.LoginTestPage.signOutLinkIsDisplayed(LoginTestPage.java:54)
+	at ✽.Then Sign out link is displayed(signIn.feature:29)
+</pre></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Dec 15, 2021 06:49:53 PM</td>
+                                                        <td class='linked' test-id='62'>Sign In on Login Page.User should LogOut SuccessFully.When I Click on Sign in link</td>
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//a[normalize-space()='Sign in']"}
+  (Session info: chrome=96.0.4664.110)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'ANCHALT', ip: '192.168.1.253', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e977df250d3f7786b0ecd1beaaab12dc, findElement {using=xpath, value=//a[normalize-space()='Sign in']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\thaku\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59834}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:59834/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: e977df250d3f7786b0ecd1beaaab12dc
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at com.sun.proxy.$Proxy23.click(Unknown Source)
+	at com.automation.utility.Utility.clickOnElement(Utility.java:27)
+	at com.automation.pages.HomePage.setClickOnSignInLink(HomePage.java:43)
+	at com.automation.cucumber.steps.LoginTestPage.iClickOnSignInLink(LoginTestPage.java:20)
+	at ✽.When I Click on Sign in link(signIn.feature:33)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.junit.ComparisonFailure</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>4</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Dec 15, 2021 06:51:05 PM</td>
+                                                        <td class='linked' test-id='83'>Women Category Page Test.Verify User Should Add Product To The Cart Successfully.Verify User Should Add Product To The Cart Successfully.Then Verify the message "Product successfully added to your shopping cart"</td>
+                                                        <td><pre><textarea>org.junit.ComparisonFailure: Message not Display expected:<[Product successfully added to your shopping cart]> but was:<[]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at com.automation.cucumber.steps.womenCatagoryPage.verifyTheMessage(womenCatagoryPage.java:50)
+	at ✽.Then Verify the message "Product successfully added to your shopping cart"(womenCategory.feature:20)
+</textarea></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Dec 15, 2021 06:51:32 PM</td>
+                                                        <td class='linked' test-id='94'>Women Category Page Test.Verify User Should Add Product To The Cart Successfully.Verify User Should Add Product To The Cart Successfully.Then Verify the message "Product successfully added to your shopping cart"</td>
+                                                        <td><pre><textarea>org.junit.ComparisonFailure: Message not Display expected:<[Product successfully added to your shopping cart]> but was:<[]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at com.automation.cucumber.steps.womenCatagoryPage.verifyTheMessage(womenCatagoryPage.java:50)
+	at ✽.Then Verify the message "Product successfully added to your shopping cart"(womenCategory.feature:20)
+</textarea></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Dec 15, 2021 06:52:03 PM</td>
+                                                        <td class='linked' test-id='105'>Women Category Page Test.Verify User Should Add Product To The Cart Successfully.Verify User Should Add Product To The Cart Successfully.Then Verify the message "Product successfully added to your shopping cart"</td>
+                                                        <td><pre><textarea>org.junit.ComparisonFailure: Message not Display expected:<[Product successfully added to your shopping cart]> but was:<[]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at com.automation.cucumber.steps.womenCatagoryPage.verifyTheMessage(womenCatagoryPage.java:50)
+	at ✽.Then Verify the message "Product successfully added to your shopping cart"(womenCategory.feature:20)
+</textarea></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Dec 15, 2021 06:52:35 PM</td>
+                                                        <td class='linked' test-id='116'>Women Category Page Test.Verify User Should Add Product To The Cart Successfully.Verify User Should Add Product To The Cart Successfully.Then Verify the message "Product successfully added to your shopping cart"</td>
+                                                        <td><pre><textarea>org.junit.ComparisonFailure: Message not Display expected:<[Product successfully added to your shopping cart]> but was:<[]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at com.automation.cucumber.steps.womenCatagoryPage.verifyTheMessage(womenCatagoryPage.java:50)
+	at ✽.Then Verify the message "Product successfully added to your shopping cart"(womenCategory.feature:20)
+</textarea></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='exception-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Features
+					<div class='panel-lead'>3</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Scenarios
+					<div class='panel-lead'>13</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>99</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Dec 15, 2021 06:45:15 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Dec 15, 2021 06:52:36 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>441,063ms</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel dashboard-environment'>
+					<span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+						</tr>
+							<tr>
+								<td>User Name</td>
+								<td>thaku</td>
+							</tr>
+							<tr>
+								<td>Time Zone</td>
+								<td>Europe/London</td>
+							</tr>
+							<tr>
+								<td>Machine</td>
+								<td>Windows 1064 Bit</td>
+							</tr>
+							<tr>
+								<td>Selenium</td>
+								<td>3.141.59</td>
+							</tr>
+							<tr>
+								<td>Maven</td>
+								<td>3.5.9</td>
+							</tr>
+							<tr>
+								<td>Java Version</td>
+								<td>1.8.0_151</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>@Regression</td>
+							<td>3</td>
+							<td>10</td>
+							<td>0</td>
+							<td>
+									23.077%
+							</td>
+						</tr>
+						<tr>
+							<td>@Smoke</td>
+							<td>2</td>
+							<td>8</td>
+							<td>0</td>
+							<td>
+									20%
+							</td>
+						</tr>
+						<tr>
+							<td>@Sanity</td>
+							<td>1</td>
+							<td>2</td>
+							<td>0</td>
+							<td>
+									33.333%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 1,
+				failParent: 2,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 2,
+				
+				passChild: 3,
+				failChild: 10,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 10,
+				
+				passGrandChild: 80,
+				failGrandChild: 10,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 9,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 19,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 			
+            
+        $(document).ready(function() {
+
+        });
+      
+        
+ 		</script>
+	</body>
+	
+</html>
